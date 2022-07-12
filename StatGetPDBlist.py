@@ -516,17 +516,15 @@ def checkargs(args):
                        'W', 'Y']:
         print('input mutation residue is not a standard amino acid, please check the input')
         raise ValueError
-    if seq[varpos - 1] != wildres:
+    if args.sequence[int(args.variant_position) - 1] != args.variant_wildtype:
         print('input variant position is not matched to input protein sequence, please check the input')
         raise ValueError
 
-    return
 if __name__ == "__main__":
 
 
     parser = argparse.ArgumentParser(description='Download PDBfiles from G2s & get features')
-    # parser.add_argument('-l', '--variant-site', dest='variant_list', type=str,
-    #                     required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+    # parser.add_argument('-l', '--variant-site', dest='variant_list', type=str, help='A list of variants, one per line in the format "POS WT MUT", a file')
 
     parser.add_argument('-w', '--variant-wildtype', dest='variant_wildtype', type=str,
                         required=True, help='wild-type residue, for example residue "A"')
@@ -537,7 +535,7 @@ if __name__ == "__main__":
 
     parser.add_argument('-s', '--sequence',  type=str,
                         required=True, help='A protein primary sequence in a file in the format fasta.')
-
+    parser.add_argument('--seqa3m', type=str,help='MSA files with a3m format from HHblits')
     # background mutation Features from G2s
 
     parser.add_argument('--pdbpath',  type=str,default='/storage/htc/joshilab/jghhd/SC/stability_change1/datasets_s1676_seq/PDB/',
@@ -547,12 +545,12 @@ if __name__ == "__main__":
 
     parser.add_argument('--dssppath', type=str,default='/storage/htc/joshilab/jghhd/SC/stability_change1/datasets_s1676_seq/dssp/',
                         required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
-    parser.add_argument('--dsspbin',  type=str,default='mkdssp',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
-    parser.add_argument('--psiblastbin',  type=str,default='psiblast',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
-    parser.add_argument('--hhblitsbin',  type=str,default='hhblits',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+    parser.add_argument('--dsspbin', type=str, default='mkdssp',
+                        required=True, help='DSSP binary executable.')
+    parser.add_argument('--psiblastbin', type=str, default='psiblast',
+                        required=True, help='psiblast binary executable.')
+    parser.add_argument('--hhblitsbin', type=str, default='hhmake',
+                        required=True, help='Binary executable for computing hhblits profile, "hhblits" for fasta input file and "hhmake" for A3M,')
 
     parser.add_argument('--psiblastout',  type=str,default='./Sequence/psiout',
                         required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
@@ -581,8 +579,8 @@ if __name__ == "__main__":
     #check input variant
     wildres = args.variant_wildtype
     mutares = args.variant_mutation
-    varpos = args.variant_position
-
+    varpos = int(args.variant_position)
+    seqa3m = args.seqa3m
     mutaseq = args.sequence
 
     #fasta path
@@ -630,7 +628,10 @@ if __name__ == "__main__":
     hhblits_out = os.path.join(args.hhblitsout,fastaid)
     hhblitshhmout = os.path.join(args.hhblitshhm,fastaid)
     if not os.path.exists(hhblitshhmout+'.hhm'):
-        hhblitscmd = args.hhblitsbin + ' -i ' + mutaseq + ' -d ' + args.hhblitsdb +' -o ' + hhblits_out  + '.hhr -ohhm ' + hhblitshhmout + '.hhm -e 1e-3 -n 2 -p 20 -Z 250 -z 1 -b 1 -B 250'
+        if args.hhblitsbin == 'hhmake':
+            hhblitscmd = args.hhblitsbin + ' -i ' + seqa3m + ' -o ' + hhblits_out  + '.hhm'
+        else:
+            hhblitscmd = args.hhblitsbin + ' -i ' + mutaseq + ' -d ' + args.hhblitsdb +' -o ' + hhblits_out  + '.hhr -ohhm ' + hhblitshhmout + '.hhm -e 1e-3 -n 2 -p 20 -Z 250 -z 1 -b 1 -B 250'
         os.system(hhblitscmd)
     else:
         pass
