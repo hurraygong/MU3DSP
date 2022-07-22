@@ -15,7 +15,7 @@
 # sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 import recommonmark
-project = 'SCpre-seq'
+project = 'MU3DSP'
 copyright = '2021, Jianting Gong'
 author = 'Jianting Gong'
 
