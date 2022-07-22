@@ -1,4 +1,4 @@
-Sequence-based stability changes prediction
+Stability changes prediction
 ============================================================
 
 .. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Figure.2.png
