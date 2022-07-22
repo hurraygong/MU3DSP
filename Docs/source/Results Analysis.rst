@@ -7,11 +7,11 @@ To build a robust predicting protein stability changes model, dataset S1676 is u
 
 **Table 1**. Performance of 10-Fold cross-validation on Dataset S1676
 
-.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Table1.png
+.. image:: https://github.com/hurraygong/MU3DSP/blob/main/pictures/Table1.png
   :align: center
   :width: 200px
 
-.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/S1676bar.png
+.. image:: https://github.com/hurraygong/MU3DSP/blob/main/pictures/S1676bar.png
   :align: center
   :width: 300px
 
@@ -21,14 +21,14 @@ MU3DSP achieves state-of-the-art performance on testing sets
 *****************************************************************************
 To evaluate the robustness of our model, we used S236, S543 as the independent testing datasets. MU3DSP compared with nine commonly used methods including EASE-AA, EASE-MM, MUpro, I-Mutant2.0, INPS, SAAFEC-SEQ, DDGun and PoPMuSiC, MAESTRO on different testing datasets. Among them, EASE-AA, EASE-MM(EASE-MM-web), MUpro, sequence-based version of I-Mutant2.0(I-MutantA), INPS, SAAFEC-SEQ, DDGun predict ∆∆G starting from sequence and mutation residues while the structure-based version of I-Mutant2.0(I-MutantB), PoPMuSiC, MAESTRO required structures as input. The results are shown in Figures 2 and 3 for S236 and S543, respectively.
 
-.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/S236Picture2.png
+.. image:: https://github.com/hurraygong/MU3DSP/blob/main/pictures/FigureS9.png
   :align: center
   :width: 300px
 
 
 **Figure 2**. Multiple bivariate plots for 11 comparative methods and MU3DSP with marginal histograms on dataset S236.
 
-.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/S543Picture3.png
+.. image:: https://github.com/hurraygong/MU3DSP/blob/main/pictures/FigureS10.png
   :align: center
   :width: 300px
 

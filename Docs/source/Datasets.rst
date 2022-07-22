@@ -29,10 +29,10 @@ Datasets with features
 ^^^^^^^^^^^^^^^^^^^^^^
 Downloading
 
-- `S1676 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/S1676_Features_sorted.csv>`_
+- `S1676 <https://github.com/hurraygong/MU3DSP/tree/main/Dataset/DatawithFeatures/S1676_Features_sorted.csv>`_
 
-- `S543 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/Result/S543_sorted.csv>`_
+- `S543 <https://github.com/hurraygong/MU3DSP/tree/main/Dataset/DatawithFeatures/S543_sorted.csv>`_
 
-- `S236 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/Result/S236.csv>`_
+- `S236 <https://github.com/hurraygong/MU3DSP/tree/main/Dataset/DatawithFeatures/S236.csv>`_
 
 

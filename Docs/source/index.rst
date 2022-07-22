@@ -1,8 +1,8 @@
 Sequence-based stability changes prediction
 ============================================================
 
-.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Figure.2.png
-   :width: 400px
+.. image:: https://github.com/hurraygong/MU3DSP/blob/main/pictures/Figure.2.png
+   :width: 600px
    :align: left
 
 MU3DSP, a residue level 3D structure-based prediction tool to assess single point mutation effects on protein thermodynamic stability and applying to dingle-domain monomeric proteins. Given protein sequence with single mutations as the input, the proposed model integrated both sequence level features of mutant residues and residue level mutation-based 3D structure features.
