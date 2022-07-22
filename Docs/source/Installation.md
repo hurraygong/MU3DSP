@@ -7,7 +7,7 @@ git clone https://github.com/hurraygong/MU3DSP.git
 cd MU3DSP
 ```
 
-## Install dependencies
+### Install dependencies
 
 #### 1. Install HHsuite
 
