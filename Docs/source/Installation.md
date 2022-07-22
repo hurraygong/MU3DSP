@@ -3,14 +3,11 @@
 ### Clone the package
 
 ```
-git clone https://github.com/hurraygong/SCpre-seq.git
-cd SCpre-seq
+git clone https://github.com/hurraygong/MU3DSP.git
+cd MU3DSP
 ```
 
 ## Install dependencies
-#### 1. Install Anaconda3
-
-Download [Anaconda](https://anaconda.org/) and install. If your computer has alread installed, pass this step.
 
 #### 2. Install HHsuite
 

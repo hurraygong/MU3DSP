@@ -5,7 +5,7 @@ Datasets for training, testing and casestudy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Our work used datasets S1676, S236, S543 to investigate the prediction of stability changes on protein (Table S1).
 
-Table S1 Datasets used to build, evaluate and independently test in SCpre-seq
+Table S1 Datasets used to build, evaluate and independently test in MU3DSP
 
 +---------+--------------------------+----------------------------------+--------------------------------+--------------------------------+-----------------------------+
 | Dataset | Total Variants (Proteins)| Destabilizing Variants (Proteins)| Stabilizing Variants (Proteins)| Stabilizing Variants (Proteins)|   Additional Details        |
@@ -29,10 +29,10 @@ Datasets with features
 ^^^^^^^^^^^^^^^^^^^^^^
 Downloading
 
-- `S1676 <https://raw.githubusercontent.com/hurraygong/SCpre-seq/master/Dataset/S1676_Features_sorted.csv>`_
+- `S1676 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/S1676_Features_sorted.csv>`_
 
-- `S543 <https://raw.githubusercontent.com/hurraygong/SCpre-seq/master/Dataset/Result/S543_sorted.csv>`_
+- `S543 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/Result/S543_sorted.csv>`_
 
-- `S236 <https://raw.githubusercontent.com/hurraygong/SCpre-seq/master/Dataset/Result/S236.csv>`_
+- `S236 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/Result/S236.csv>`_
 
 

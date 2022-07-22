@@ -1,5 +1,4 @@
 requests
-json
 pickle
 wget
 argparse

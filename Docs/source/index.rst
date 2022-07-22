@@ -1,20 +1,19 @@
 Sequence-based stability changes prediction
 ============================================================
 
-.. image:: https://raw.githubusercontent.com/hurraygong/SCpre-seq/master/pictures/Figure.2.png
+.. image:: https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Figure.2.png
    :width: 400px
    :align: left
 
+MU3DSP, a residue level 3D structure-based prediction tool to assess single point mutation effects on protein thermodynamic stability and applying to dingle-domain monomeric proteins. Given protein sequence with single mutations as the input, the proposed model integrated both sequence level features of mutant residues and residue level mutation-based 3D structure features.
 
-SCpre-seq, a residue level 3D structure-based prediction tool to assess single point mutation effects on protein thermodynamic stability and applying to dingle-domain monomeric proteins. Given protein sequence with single mutations as the input, the proposed model integrated both sequence level features of mutant residues and residue level mutation-based 3D structure features.
 
-
-SCpre-seq's applications
+MU3DSP's highlights
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-- SCpre-seq can be applied to predicting stability changes on single monomeric proteins which tertiary structures are unavailable.
-- SCpre-seq can be used to assess both somatic and germline substitution mutations such as p53 in biological and medical research on genomics and proteomics.
-- Mutation-based background knowledge of variants obtained from G2S which surveys the whole mutations in PDB can be used to makes up for the shortage of structural information for sequence-based methods.
-- A reliable mutation-based residue-level 3D structure information has applied to improve the model's performance.
+- We propose a fast computational method, MU3DSP, based on LightGBM to predict stability changes upon single-residue mutations on proteins by fusing information from 3D structure profiles. The tertiary structure of the protein does not have to be available.
+- MU3DSP uses a structure-based feature from either homology models of query variants if they are available or the annotated genomic variants database G2S (Genome to Structure).
+- MU3DSP can achieve real-time prediction, and it only takes less than 1 minute on average to compute the same mutated position on one protein. A software tool is also provided to allow easy use of the tool.
+- MU3DSP achieves state-of-the-art performance on two independent testing datasets. It is a reliable tool to assess both somatic and germline substitution mutations and assist in protein design.
 
 Reference
 ^^^^^^^^^
@@ -24,9 +23,9 @@ ACKNOWLEDGEMENTS
 
 Support
 ^^^^^^^
-Feel free to submit an `issue <https://github.com/hurraygong/SCpre-seq/issues/new>`_
+Feel free to submit an `issue <https://github.com/hurraygong/MU3DSP/issues/new>`_
 or send us an `email <gongjt057@nenu.edu.cn>`_.
-Your help to improve SCpre-seq is highly appreciated.
+Your help to improve MU3DSP is highly appreciated.
 
 
 .. toctree::
