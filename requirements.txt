@@ -1,9 +1,0 @@
-requests
-pickle
-wget
-argparse
-numpy
-collections
-lightgbm
-sklearn
-scipy
