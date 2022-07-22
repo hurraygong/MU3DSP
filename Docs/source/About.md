@@ -6,4 +6,4 @@ Mutation-induced protein thermodynamic stability changes (DDG) are crucial for u
 
 Protein thermodynamic stability changes of single point mutation are changes of the Gibbes free energy for the biophysical process of protein folding between two states before and after single point mutation on the protein[1]. A quantified change of Gibbs free energy of a protein between the folding and unfolding status is usually represented as DG. When a point mutation is present and a residue is substituted in a protein, the original protein would be a "reference state", likely called "wild-type protein". The protein mutated is called "mutation protein".  
 
-![](https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Figure.1.jpg)
+![](https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Figure.1zip.png)
