@@ -9,7 +9,7 @@ cd MU3DSP
 
 ## Install dependencies
 
-#### 2. Install HHsuite
+#### 1. Install HHsuite
 
 Using conda install hhsuite. It is also can be installed by other methods shown on official website,  If you have installed, pass this step.
 ```
@@ -26,9 +26,9 @@ rm UniRef30_2020_06_hhsuite.tar.gz
 ```
 
 
-#### 3. Install DSSP
+#### 2. Install DSSP
 
-Using conda install DSSP programe. (https://anaconda.org/salilab/dssp)
+Using conda install DSSP programe (https://anaconda.org/salilab/dssp). It is also can be installed by other methods shown on official website,  If you have installed, pass this step.
 ```
 conda install -c salilab dssp
 ```
@@ -37,13 +37,14 @@ to `dssp` using `cp` command by yourself.
 ```
 whereis mkdssp
 ```
-#### 4.Install BLAST++
+#### 3.Install BLAST++
 
-We also recommend to install [BLAST++]( (https://anaconda.org/bioconda/blast)) using `conda`. To install this package with conda run one of the following:
+Install [BLAST++]( (https://anaconda.org/bioconda/blast)) using `conda`. To install this package with conda run one of the following:
 ```
 conda install -c bioconda blast
 conda install -c bioconda/label/cf201901 blast
 ```
+It is also can be installed by other methods shown on official website,  If you have installed, pass this step.
 
 Install BLAST++ database.
 ```
