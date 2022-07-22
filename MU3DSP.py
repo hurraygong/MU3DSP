@@ -536,12 +536,12 @@ if __name__ == "__main__":
     # background mutation Features from G2s
 
     parser.add_argument('--pdbpath',  type=str,default='/storage/htc/joshilab/jghhd/SC/stability_change1/datasets_s1676_seq/PDB/',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='The path for mutation-based structures')
 
 
 
     parser.add_argument('--dssppath', type=str,default='/storage/htc/joshilab/jghhd/SC/stability_change1/datasets_s1676_seq/dssp/',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='The path for DSSP output files')
     parser.add_argument('--dsspbin', type=str, default='mkdssp',
                         required=True, help='DSSP binary executable.')
     parser.add_argument('--psiblastbin', type=str, default='psiblast',
@@ -550,20 +550,19 @@ if __name__ == "__main__":
                         required=True, help='Binary executable for computing hhblits profile, "hhblits" for fasta input file and "hhmake" for A3M,')
 
     parser.add_argument('--psiblastout',  type=str,default='./Sequence/psiout',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='psiblast output files, a path')
     parser.add_argument('--psiblastpssm',  type=str,default='./Sequence/pssmout',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='A path for PSSM files')
     parser.add_argument('--psiblastdb',  type=str,default='/home/gongjianting/tools/PsiblastDB/swissprot',
                         required=True, help='background database for align in psiblast')
 
 
-    parser.add_argument('--hhblitsdb',  type=str,default='/home/gongjianting/tools/HHsuitDB/UniRef30_2020_06',
-                        required=True, help='background database for align in tools hhblits')
+    parser.add_argument('--hhblitsdb',  type=str,default='/home/gongjianting/tools/HHsuitDB/UniRef30_2020_06', help='background database for align in tools hhblits')
 
     parser.add_argument('--hhblitsout',  type=str,default='./Sequence/hhblitout',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='A path for hhblits output files')
     parser.add_argument('--hhblitshhm',  type=str,default='./Sequence/hhmout',
-                        required=True, help='A list of variants, one per line in the format "POS WT MUT", a file')
+                        required=True, help='A path for storing HHM files')
     parser.add_argument("-v", "--version", action="version")
     parser.add_argument("-o", "--outfile",type=bool, default=False,help='Whether save the result or not')
     parser.add_argument("-printout", type=bool, default=True, help='Whether print the result or not')
