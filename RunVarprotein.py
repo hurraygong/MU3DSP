@@ -14,5 +14,5 @@ for eachline in lines:
             seq = seq + subseq.strip('\n').strip()
         i = int(eachline.split('_')[2][1:-1])
         Aacid = eachline.split('_')[2][-1]
-        cmd = "python StatGetPDBlist.py -p "+  str(i)+ " -w "+ seq[i-1] + " -m " + Aacid + " -o " + str(i)+Aacid  + " -s "+seqpath+" --pdbpath ./PDB2Seq/VarbenchPDB/ --dssppath ./PDB2Seq/DSSPtest --dsspbin mkdssp --psiblastbin  psiblast --hhblitsbin hhblits --psiblastout ./Sequence/psiout --psiblastpssm ./VarSequence/pssmout --psiblastdb /home/gongjianting/tools/PsiblastDB/swissprot --hhblitsdb /home/gongjianting/tools/HHsuitDB/UniRef30_2020_06 --hhblitsout ./VarSequence/hhblitout --hhblitshhm ./VarSequence/hhmout"
+        cmd = "python MU3DSP.py -p "+  str(i)+ " -w "+ seq[i-1] + " -m " + Aacid + " -o " + str(i)+Aacid  + " -s "+seqpath+" --pdbpath ./PDB2Seq/VarbenchPDB/ --dssppath ./PDB2Seq/DSSPtest --dsspbin mkdssp --psiblastbin  psiblast --hhblitsbin hhblits --psiblastout ./Sequence/psiout --psiblastpssm ./VarSequence/pssmout --psiblastdb /home/gongjianting/tools/PsiblastDB/swissprot --hhblitsdb /home/gongjianting/tools/HHsuitDB/UniRef30_2020_06 --hhblitsout ./VarSequence/hhblitout --hhblitshhm ./VarSequence/hhmout"
         os.system(cmd)

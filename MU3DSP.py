@@ -9,17 +9,14 @@ import wget
 import os
 import argparse
 import time
-from argparse import ArgumentParser
 from DSSPparser import *
 import sys
 import numpy as np
 from collections import Counter
 from HHMwm import ParsePssm,ParseHHm
-import pandas as pd
 import lightgbm as lgb
-from sklearn import metrics
-from sklearn.metrics import *
-from scipy import stats
+
+
 # Setup API, e.g. https://g2s.genomenexus.org/api/alignments/uniprot/P02185/residueMapping?positionList=10
 # Can change to any valid URL in G2S API, UniprotID or positionist
 ############################### DSSP #################################
