@@ -1,4 +1,4 @@
-#pdb_id,pdb_position,uniprot_id,uniprot_position,protherm_id,ph,temperature,exp_ddG,EASE-MM,EASE-AA,MUpro,I-Mutant_seq,I-Mutant_str,PoPMuSiC,PoPMuSiC3,SCpre-seq,INPS,MAESTRO,SAAFEC-seq,DynaMut2,DDGun,EASE-MM-web,pdbchain,seqpos,Str_map
+#pdb_id,pdb_position,uniprot_id,uniprot_position,protherm_id,ph,temperature,Exp.ddG,EASE-MM,EASE-AA,MUpro,I-MutantA,I-MutantB,PoPMuSiC,PoPMuSiC3,MU3DSP,INPS,MAESTRO,SAAFEC-SEQ,DynaMut2,DDGun,EASE-MM-web,pdbchain,seqpos,str_status
 1FTG,E61K,P0A3D9,E62K,17971,7,44.15,0.24,-0.594847504,-0.760591924,-1.4650433,-0.26,-0.08,0.05,-0.05,-0.174575812,-0.335896,0.53258,0.3,-0.38,-0.2,-0.6178,A,E62K,1
 1W3D,D162N,P11961,D162N,18484,5.5,51.85,-2,-0.098344565,-0.802063946,-0.93324501,-0.89,-0.8,-0.84,0.84,-1.033584809,-0.431272,0.45173,-0.39,-0.31,-0.8,0.0416,A,D162N,2
 1W4H,L158A,P0AFG6,L141A,24808,7,9.85,-2.12,-2.283099548,-2.885589564,-1.9478976,-2.88,-2.64,-2.79,2.79,-2.070241944,-2.01815,-0.89812,-2.31,0.31,-2.2,-2.0953,A,L141A,2

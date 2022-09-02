@@ -1,0 +1,9 @@
+if MSA file is provided:
+
+python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb /root/blastDB/swissprot --hhblitsdb /root/HHblitDB/UniRef30_2020_06 --hhblitsout ./examples/hhblitout --hhblitshhm ./examples/hhmout --outfilepath ./examples/2ocj_Q9H.npy --seqa3m ./examples/a3m/p53.a3m --printout True
+
+otherwise：
+
+python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhblits --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb /root/blastDB/swissprot --hhblitsdb /root/HHblitDB/UniRef30_2020_06 --hhblitsout ./examples/hhblitout --hhblitshhm ./examples/hhmout --outfilepath ./examples/2ocj_Q9H.npy --printout True
+
+

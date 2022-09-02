@@ -562,7 +562,7 @@ if __name__ == "__main__":
                         required=True, help='A path for storing HHM files')
     parser.add_argument("-v", "--version", action="version")
     parser.add_argument("-o", "--outfile",type=bool, default=False,help='Whether save the result or not')
-    parser.add_argument("--printout", type=bool, default=True, help='Whether print the result or not')
+    parser.add_argument("--printout", type=bool, default=False, help='Whether print the result or not')
     parser.add_argument("--outfilepath", type=str,default='./',help='Output file path')
     parser.add_argument("-G","--G2s",type=bool, default=False, help='Fast Version, Q4')
     #https: // xgxm.xueguoxue.com /  # /user/receiveLearnCard?cardId=d7ce3f00264d23
@@ -738,7 +738,7 @@ if __name__ == "__main__":
     preds_online = bst.predict([preFeatures], num_iteration=bst.best_iteration)  # 输出概率
     outfilename = fastaid + '_'+ wildres+str(varpos)+mutares
     if args.outfile == True:
-        outfile = os.path.join(args.outfilepath, outfilename + '.npy')
+        outfile = os.path.join(args.outfilepath)
         np.save(outfile, preds_online[0])
     if args.printout == True:
         print(wildres+str(varpos)+mutares, round(preds_online[0],4))
