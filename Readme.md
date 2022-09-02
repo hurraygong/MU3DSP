@@ -1,5 +1,12 @@
 # README
 SCpre-seq, an end-to-end sequence-based tool using a residue level mutation-based 3D structure information to assess single point mutation effects on protein thermodynamic stability and applying to dingle-domain monomeric proteins. More information can be checked at the [tutorial](https://mu3dsp.readthedocs.io/en/latest/).
+## Clone the package
+
+```
+git clone https://github.com/hurraygong/MU3DSP.git
+cd MU3DSP
+```
+
 ## Install dependencies
 #### 1. Install HHsuite
 
@@ -49,12 +56,7 @@ rm swissprot.tar.gz
 rm swissprot.tar.gz.md5
 ```
 
-## Clone the package
 
-```
-git clone https://github.com/hurraygong/MU3DSP.git
-cd MU3DSP
-```
 ## Usage
 
 If provide MSA files with a3m format from HHblits. It can run with:
@@ -66,7 +68,7 @@ If provide MSA files with a3m format from HHblits. It can run with:
 For example:
 ```python
 
-python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A129D.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb /root/blastDB/swissprot --hhblitshhm ./examples/hhmout -outpath ./examples/ --seqa3m ./examples/a3m/p53.a3m
+python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb ./PsiblastDB/swissprot --hhblitshhm ./examples/hhmout --outfilepath ./examples/2ocj_Q9H.npy --seqa3m ./examples/a3m/p53.a3m --printout True
 ```
 
 If provide fasta files and HHblits is accessable.
@@ -77,4 +79,5 @@ If provide fasta files and HHblits is accessable.
 
 ```
 
+Because of the mutation-based 
 ## References

@@ -622,7 +622,7 @@ if __name__ == "__main__":
     hhblitshhmout = os.path.join(args.hhblitshhm,fastaid)
     if not os.path.exists(hhblitshhmout+'.hhm'):
         if args.hhblitsbin == 'hhmake':
-            hhblitscmd = args.hhblitsbin + ' -i ' + seqa3m + ' -o ' + hhblits_out  + '.hhm'
+            hhblitscmd = args.hhblitsbin + ' -i ' + seqa3m + ' -o ' + hhblitshhmout  + '.hhm'
         else:
             hhblitscmd = args.hhblitsbin + ' -i ' + mutaseq + ' -d ' + args.hhblitsdb +' -o ' + hhblits_out  + '.hhr -ohhm ' + hhblitshhmout + '.hhm -e 1e-3 -n 2 -p 20 -Z 250 -z 1 -b 1 -B 250'
         os.system(hhblitscmd)
