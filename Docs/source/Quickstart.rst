@@ -56,11 +56,17 @@ Take mutation Q to H at position 104 of p53 protein as example. Its position in 
 If provide MSA files with a3m format from HHblits. It can run with:
 ::
 
-     python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A129D.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb /root/blastDB/swissprot --hhblitshhm ./examples/hhmout -outpath ./examples/ --seqa3m ./examples/a3m/p53.a3m
+  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitshhm hhmoutfile-path --seqa3m MSA-a3m-file
+
+
+For example:
+::
+
+    python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb ./PsiblastDB/swissprot --hhblitshhm ./examples/hhmout --outfilepath ./examples/2ocj_Q9H.npy --seqa3m ./examples/a3m/p53.a3m --printout True
 
 
 If provide fasta files and HHblits is accessable.
 
 ::
 
-  python MU3DSP.py -p 9 -w Q -m H -o True -s ./examples/SEQ/2ocj_A129D.fasta --pdbpath ./examples/PDBtest --dssppath ./examples/DSSPtest --dsspbin dssp --psiblastbin  psiblast --hhblitsbin hhmake --psiblastout ./examples/psiout --psiblastpssm ./examples/pssmout --psiblastdb /root/blastDB/swissprot --hhblitsdb /root/HHblitDB/UniRef30_2020_06 --hhblitsout ./examples/hhblitout --hhblitshhm ./examples/hhmout -outpath ./examples/
+  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitsdb UniRef30_2020_06-path --hhblitsout hhblitoutpath --hhblitshhm hhmoutfilepath

@@ -31,8 +31,5 @@ Downloading
 
 - `S1676 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/DatawithFeatures/S1676_Features_sorted.csv>`_
 
-- `S543 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/Dataset/DatawithFeatures/S543_sorted.csv>`_
-
-- `S236 <https://raw.githubusercontent.com/hurraygong/MU3DSP/master/pictures/Dataset/DatawithFeatures/S236.csv>`_
 
 
