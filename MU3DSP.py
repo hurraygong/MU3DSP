@@ -1,6 +1,4 @@
 # Python 3.6
-# A Simple Python template program reading G2S APIs
-# download PDBfiles and thier dssp files based on
 
 import requests
 import json
@@ -513,12 +511,11 @@ def checkargs(args):
                        'W', 'Y']:
         print('input mutation residue is not a standard amino acid, please check the input')
         raise ValueError
-    if args.sequence[int(args.variant_position) - 1] != args.variant_wildtype:
+    if seq[int(args.variant_position) - 1] != args.variant_wildtype:
         print('input variant position is not matched to input protein sequence, please check the input')
         raise ValueError
 
 if __name__ == "__main__":
-
 
     parser = argparse.ArgumentParser(description='Download PDBfiles from G2s & get features')
     # parser.add_argument('-l', '--variant-site', dest='variant_list', type=str, help='A list of variants, one per line in the format "POS WT MUT", a file')
@@ -565,9 +562,9 @@ if __name__ == "__main__":
                         required=True, help='A path for storing HHM files')
     parser.add_argument("-v", "--version", action="version")
     parser.add_argument("-o", "--outfile",type=bool, default=False,help='Whether save the result or not')
-    parser.add_argument("-printout", type=bool, default=True, help='Whether print the result or not')
-    parser.add_argument("-outpath", "--outfilepath", type=str,default='./',help='Output file path')
-
+    parser.add_argument("--printout", type=bool, default=True, help='Whether print the result or not')
+    parser.add_argument("--outfilepath", type=str,default='./',help='Output file path')
+    parser.add_argument("-G","--G2s",type=bool, default=False, help='Fast Version, Q4')
     #https: // xgxm.xueguoxue.com /  # /user/receiveLearnCard?cardId=d7ce3f00264d23
 
     args = parser.parse_args()
@@ -689,7 +686,8 @@ if __name__ == "__main__":
     # SS+RASA
     wildsites = Get_wildsitepdb(wildres, sitesmapping[unp_wpm])
     mutasites = Get_wildsitepdb(mutares, sitesmapping[unp_wpm])
-
+    if args.G2s == True:
+        wildsites,mutasites = [],[]
     wildss, wildasa_all, wildasa_01, wildasa_me, wildangle, wildstr, mutass, mutaasa_all, mutaasa_01, mutaasa_me, mutaangle, mutastr = MuStructureFea(
         wildsites, mutasites, alldsspparsed, mutares, wildres, singlePDB=False)
 
@@ -736,11 +734,11 @@ if __name__ == "__main__":
     HHM = orihhm + DDhhm
 
     preFeatures = dsspfea + AApsstr + DDpara + Pssm  + HHM
-    bst = lgb.Booster(model_file='model_rmse_0.664_0.513_0920.txt')
+    bst = lgb.Booster(model_file='model_rmse_MU3DSP.txt')
     preds_online = bst.predict([preFeatures], num_iteration=bst.best_iteration)  # 输出概率
-    args.outfilename = fastaid + '_'+ wildres+str(varpos)+mutares
+    outfilename = fastaid + '_'+ wildres+str(varpos)+mutares
     if args.outfile == True:
-        outfile = os.path.join(args.outfilepath, args.outfilename + '.npy')
+        outfile = os.path.join(args.outfilepath, outfilename + '.npy')
         np.save(outfile, preds_online[0])
     if args.printout == True:
         print(wildres+str(varpos)+mutares, round(preds_online[0],4))
