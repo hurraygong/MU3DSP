@@ -511,9 +511,17 @@ def checkargs(args):
                        'W', 'Y']:
         print('input mutation residue is not a standard amino acid, please check the input')
         raise ValueError
+    for eachaa in seq:
+        if eachaa not in ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V',
+                           'W', 'Y']:
+            print('Input sequence includes non-standard amino acid, please check the input')
+            raise ValueError
     if seq[int(args.variant_position) - 1] != args.variant_wildtype:
         print('input variant position is not matched to input protein sequence, please check the input')
         raise ValueError
+    # if not os.path.exists(args.seqa3m):
+    #     print('input MSA(.a3m) file is not matched to input protein sequence, please check the input')
+    #     raise ValueError
 
 if __name__ == "__main__":
 

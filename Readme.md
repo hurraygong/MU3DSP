@@ -62,7 +62,7 @@ rm swissprot.tar.gz.md5
 If provide MSA files with a3m format from HHblits. It can run with:
 ```python
 
-  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitshhm hhmoutfile-path --seqa3m MSA-a3m-file
+  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitshhm hhmoutfile-path --seqa3m MSA-a3m-file --printout True
 
 ```
 For example:
@@ -75,7 +75,7 @@ If provide fasta files and HHblits is accessable.
 
 ```python
 
-  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitsdb UniRef30_2020_06-path --hhblitsout hhblitoutpath --hhblitshhm hhmoutfilepath
+  python MU3DSP.py -p residueposition -w wildtyperesidue -m mutationresidue -o outfilename -s sequencepath --pdbpath pdbfilepath --dssppath dsspfilepath --dsspbin mkdssp-path --psiblastbin  psiblast-path --hhblitsbin hhblits-path --psiblastout psioutfile-path --psiblastpssm pssmoutfile-path --psiblastdb swissprot-path --hhblitsdb UniRef30_2020_06-path --hhblitsout hhblitoutpath --hhblitshhm hhmoutfilepath --printout True
 
 ```
 
