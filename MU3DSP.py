@@ -746,8 +746,8 @@ if __name__ == "__main__":
     preds_online = bst.predict([preFeatures], num_iteration=bst.best_iteration)  # 输出概率
     outfilename = fastaid + '_'+ wildres+str(varpos)+mutares
     if args.outfile == True:
-        outfile = os.path.join(args.outfilepath)
-        np.save(outfile, preds_online[0])
+        #outfile = os.path.join(args.outfilepath)
+        np.save(args.outfilepath, preds_online[0])
     if args.printout == True:
         print(wildres+str(varpos)+mutares, round(preds_online[0],4))
 
