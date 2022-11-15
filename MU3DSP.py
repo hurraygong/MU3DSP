@@ -8,7 +8,7 @@ import os
 import argparse
 import time
 from DSSPparser import *
-import sys
+import sys,shutil
 import numpy as np
 from collections import Counter
 from HHMwm import ParsePssm,ParseHHm
@@ -511,17 +511,9 @@ def checkargs(args):
                        'W', 'Y']:
         print('input mutation residue is not a standard amino acid, please check the input')
         raise ValueError
-    for eachaa in seq:
-        if eachaa not in ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V',
-                           'W', 'Y']:
-            print('Input sequence includes non-standard amino acid, please check the input')
-            raise ValueError
     if seq[int(args.variant_position) - 1] != args.variant_wildtype:
         print('input variant position is not matched to input protein sequence, please check the input')
         raise ValueError
-    # if not os.path.exists(args.seqa3m):
-    #     print('input MSA(.a3m) file is not matched to input protein sequence, please check the input')
-    #     raise ValueError
 
 if __name__ == "__main__":
 
@@ -537,7 +529,7 @@ if __name__ == "__main__":
 
     parser.add_argument('-s', '--sequence',  type=str,
                         required=True, help='A protein primary sequence in a file in the format fasta.')
-    parser.add_argument('--seqa3m', type=str,help='MSA files with a3m format from HHblits')
+    parser.add_argument('--hhmfile', type=str,help='MSA files with hhm format from HHblits')
     # background mutation Features from G2s
 
     parser.add_argument('--pdbpath',  type=str,default='/storage/htc/joshilab/jghhd/SC/stability_change1/datasets_s1676_seq/PDB/',
@@ -551,8 +543,8 @@ if __name__ == "__main__":
                         required=True, help='DSSP binary executable.')
     parser.add_argument('--psiblastbin', type=str, default='psiblast',
                         required=True, help='psiblast binary executable.')
-    parser.add_argument('--hhblitsbin', type=str, default='hhmake',
-                        required=True, help='Binary executable for computing hhblits profile, "hhblits" for fasta input file and "hhmake" for A3M,')
+    parser.add_argument('--hhblitsbin', type=str, default='hhblits',help='Binary executable for computing hhblits profile, "hhblits" for fasta input file and "hhmake" for A3M,')
+    parser.add_argument('--hhsuite', type=bool, default=False,help='HHM file')
 
     parser.add_argument('--psiblastout',  type=str,default='./Sequence/psiout',
                         required=True, help='psiblast output files, a path')
@@ -569,10 +561,10 @@ if __name__ == "__main__":
     parser.add_argument('--hhblitshhm',  type=str,default='./Sequence/hhmout',
                         required=True, help='A path for storing HHM files')
     parser.add_argument("-v", "--version", action="version")
-    parser.add_argument("-o", "--outfile",type=bool, default=False,help='Whether save the result or not')
-    parser.add_argument("--printout", type=bool, default=False, help='Whether print the result or not')
-    parser.add_argument("--outfilepath", type=str,default='./',help='Output file path')
-    parser.add_argument("-G","--G2s",type=bool, default=False, help='Fast Version, Q4')
+    parser.add_argument("-o", "--outfile", default='False', action='store_true',help='Whether save the result or not')
+    parser.add_argument("--printout",  default='False', action='store_true', help='Whether print the result or not')
+    parser.add_argument("--outfilepath", type=str,default='./input.npy',help='Output file path')
+    parser.add_argument("-G","--G2s",  default='False', action='store_true', help='Fast Version, structures are unavailable in Q4')
     #https: // xgxm.xueguoxue.com /  # /user/receiveLearnCard?cardId=d7ce3f00264d23
 
     args = parser.parse_args()
@@ -581,7 +573,7 @@ if __name__ == "__main__":
     wildres = args.variant_wildtype
     mutares = args.variant_mutation
     varpos = int(args.variant_position)
-    seqa3m = args.seqa3m
+    hhmfile = args.hhmfile
     mutaseq = args.sequence
 
     #fasta path
@@ -629,11 +621,12 @@ if __name__ == "__main__":
     hhblits_out = os.path.join(args.hhblitsout,fastaid)
     hhblitshhmout = os.path.join(args.hhblitshhm,fastaid)
     if not os.path.exists(hhblitshhmout+'.hhm'):
-        if args.hhblitsbin == 'hhmake':
-            hhblitscmd = args.hhblitsbin + ' -i ' + seqa3m + ' -o ' + hhblitshhmout  + '.hhm'
-        else:
+        if args.hhsuite == False:
             hhblitscmd = args.hhblitsbin + ' -i ' + mutaseq + ' -d ' + args.hhblitsdb +' -o ' + hhblits_out  + '.hhr -ohhm ' + hhblitshhmout + '.hhm -e 1e-3 -n 2 -p 20 -Z 250 -z 1 -b 1 -B 250'
-        os.system(hhblitscmd)
+            os.system(hhblitscmd)
+        else:
+            #print(hhmfile,hhblitshhmout+'.hhm')
+            shutil.copyfile(hhmfile,hhblitshhmout+'.hhm')
     else:
         pass
 
@@ -694,7 +687,8 @@ if __name__ == "__main__":
     # SS+RASA
     wildsites = Get_wildsitepdb(wildres, sitesmapping[unp_wpm])
     mutasites = Get_wildsitepdb(mutares, sitesmapping[unp_wpm])
-    if args.G2s == True:
+    #print(args.G2s)
+    if args.G2s == 'True':
         wildsites,mutasites = [],[]
     wildss, wildasa_all, wildasa_01, wildasa_me, wildangle, wildstr, mutass, mutaasa_all, mutaasa_01, mutaasa_me, mutaangle, mutastr = MuStructureFea(
         wildsites, mutasites, alldsspparsed, mutares, wildres, singlePDB=False)
@@ -746,7 +740,6 @@ if __name__ == "__main__":
     preds_online = bst.predict([preFeatures], num_iteration=bst.best_iteration)  # 输出概率
     outfilename = fastaid + '_'+ wildres+str(varpos)+mutares
     if args.outfile == True:
-        #outfile = os.path.join(args.outfilepath)
         np.save(args.outfilepath, preds_online[0])
     if args.printout == True:
         print(wildres+str(varpos)+mutares, round(preds_online[0],4))
